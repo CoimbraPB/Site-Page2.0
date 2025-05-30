@@ -2790,57 +2790,56 @@ section,
 }
 
   /* Linha horizontal da timeline */
-  .timeline-container {
-    position: relative;
-  }
-  .timeline-line {
-    height: 4px;
-    background-color: black;
-    z-index: 0;
-  }
+.timeline-scroll-wrapper {
+  /* permite scroll horizontal no celular */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem; /* espaço para scroll */
+}
 
-  /* Cada bolinha */
-  .timeline-dot {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    z-index: 10;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-  .timeline-dot:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 12px rgba(0,0,0,0.3);
-  }
+.timeline-container {
+  position: relative;
+  min-width: max-content; /* força a linha crescer conforme o conteúdo */
+}
 
-  /* Data acima da bolinha, com linha vertical */
-  .timeline-item {
-    position: relative;
-  }
-  .timeline-date {
-    font-size: 0.85rem;
-    position: relative;
-    margin-bottom: 0.5rem;
-  }
-  .timeline-date::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 8px;
-    background-color: black;
-  }
+/* Linha horizontal */
+.timeline-line {
+  height: 4px;
+  background-color: black;
+  z-index: 0;
+  width: 100%;
+}
 
-  /* Responsividade */
-  @media (max-width: 575.98px) {
-    .timeline-container {
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center !important;
-    }
-    .timeline-item {
-      min-width: 80px !important;
-    }
-  }
+/* Bolinhas */
+.timeline-dot {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.timeline-dot:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+/* Data acima da bolinha, com linha vertical */
+.timeline-item {
+  position: relative;
+}
+.timeline-date {
+  font-size: 0.85rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.timeline-date::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 8px;
+  background-color: black;
+}
